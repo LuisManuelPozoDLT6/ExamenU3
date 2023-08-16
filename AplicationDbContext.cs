@@ -11,9 +11,14 @@ namespace ExamenU3
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options) :base(options){
 
         }
-
                 public DbSet<Categorias>? Categorias {get; set;}
+                
                 public DbSet<Pedidos>? Pedidos {get; set;}
+
+                public DbSet<Productos>? Productoss{get; set;}
+
+                public DbSet<Clientes>? Clientes {get; set;}
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +31,7 @@ namespace ExamenU3
                     FechaActualizacion = new DateTime()
                 }
             );
+
             modelBuilder.Entity<Pedidos>().HasData(
                 new Pedidos()
                 {
@@ -37,6 +43,32 @@ namespace ExamenU3
                     MetodoPago = "Tarjeta"
                 }
             );
+
+
+            modelBuilder.Entity<Productos>().HasData(
+                new Productos()
+                {
+                    Id = 1,
+                    Nombre = "!Iphone 14 Pro Max",
+                    Descripcion = "Telefono de gama alta con 562 GBS",
+                    Precio = 33000,
+                    Cantidad = 500
+                    
+                }
+            );
+
+            modelBuilder.Entity<Clientes>().HasData(
+                new Clientes()
+                {
+                    Id = 1,
+                    Nombre = "Cliente",
+                    Apellidos = "Cliente Apellidos",
+                    Rfc = "AFJB47GHU12JKOSL34",
+                    Correo = "cliente@gmail.com",
+                    Telefono = "1234568795"
+                }
+            );
+
             base.OnModelCreating(modelBuilder);
 
             
