@@ -13,6 +13,7 @@ namespace ExamenU3
         }
 
                 public DbSet<Categorias>? Categorias {get; set;}
+                public DbSet<Pedidos>? Pedidos {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,7 +26,20 @@ namespace ExamenU3
                     FechaActualizacion = new DateTime()
                 }
             );
+            modelBuilder.Entity<Pedidos>().HasData(
+                new Pedidos()
+                {
+                    Id = 1,
+                    FechaSolicitud = new DateTime(),
+                    FechaEntrega = new DateTime(),
+                    Direccion = "Calle 48 Norte #32",
+                    TotalPagar = 2500.00,
+                    MetodoPago = "Tarjeta"
+                }
+            );
             base.OnModelCreating(modelBuilder);
+
+            
         }
     }
 }
