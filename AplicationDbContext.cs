@@ -13,6 +13,8 @@ namespace ExamenU3
         }
                 public DbSet<Categorias>? Categorias {get; set;}
                 
+                public DbSet<Proveedor>? Proveedor {get; set;}
+                
                 public DbSet<Pedidos>? Pedidos {get; set;}
 
                 public DbSet<Productos>? Productoss{get; set;}
@@ -29,6 +31,16 @@ namespace ExamenU3
                     Nombre = "Test",
                     FechaCreacion = new DateTime(),
                     FechaActualizacion = new DateTime()
+                }
+            );
+            modelBuilder.Entity<Proveedor>().HasData(
+                new Proveedor()
+                {
+                    Id = 1,
+                    NombreEmpresa = "DOMINOS PIZZA",
+                    NombreRepartidor = "CARLOS ALBERTO",
+                    CorreoElectronico = "ejemplo@gmail.com",
+                    Telefono = 1234567890 ,
                 }
             );
 
