@@ -13,6 +13,7 @@ namespace ExamenU3
         }
 
                 public DbSet<Categorias>? Categorias {get; set;}
+                public DbSet<Clientes>? Clientes {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +26,19 @@ namespace ExamenU3
                     FechaActualizacion = new DateTime()
                 }
             );
+
+            modelBuilder.Entity<Clientes>().HasData(
+                new Clientes()
+                {
+                    Id = 1,
+                    Nombre = "Cliente",
+                    Apellidos = "Cliente Apellidos",
+                    Rfc = "AFJB47GHU12JKOSL34",
+                    Correo = "cliente@gmail.com",
+                    Telefono = "1234568795"
+                }
+            );
+
             base.OnModelCreating(modelBuilder);
         }
     }
