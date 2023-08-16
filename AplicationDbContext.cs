@@ -12,6 +12,8 @@ namespace ExamenU3
 
         }
                 public DbSet<Categorias>? Categorias {get; set;}
+                
+                public DbSet<Pedidos>? Pedidos {get; set;}
 
                 public DbSet<Productos>? Productoss{get; set;}
 
@@ -27,6 +29,18 @@ namespace ExamenU3
                     Nombre = "Test",
                     FechaCreacion = new DateTime(),
                     FechaActualizacion = new DateTime()
+                }
+            );
+
+            modelBuilder.Entity<Pedidos>().HasData(
+                new Pedidos()
+                {
+                    Id = 1,
+                    FechaSolicitud = new DateTime(),
+                    FechaEntrega = new DateTime(),
+                    Direccion = "Calle 48 Norte #32",
+                    TotalPagar = 2500.00,
+                    MetodoPago = "Tarjeta"
                 }
             );
 
@@ -56,6 +70,8 @@ namespace ExamenU3
             );
 
             base.OnModelCreating(modelBuilder);
+
+            
         }
     }
 }
